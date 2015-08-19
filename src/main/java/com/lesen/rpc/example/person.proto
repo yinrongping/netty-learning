@@ -1,0 +1,10 @@
+package rpc; 
+
+option java_package = "com.lesen.common"; 
+option java_outer_classname = "RPCObject";
+
+message Person{
+
+  required int32 id = 1;
+  required string name = 2;
+}

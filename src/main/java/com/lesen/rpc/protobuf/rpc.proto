@@ -1,0 +1,48 @@
+package rpc; 
+
+option java_package = "com.lesen.common"; 
+option java_outer_classname = "LesenRPCProto";
+
+message LesenRPCRequest{
+
+    required string token     =1;
+    
+    required string serviceName=2;
+   
+    required string methodName=3;
+    
+    repeated LesenRPCParameter params = 4;
+} 
+
+message LesenRPCParameter{
+
+   required string type=1;
+   
+   required bytes value=2;
+}
+
+message LesenRPCResponse{
+
+     required string token     =1;
+    
+     required string serviceName=2;
+     
+     required bool hasError = 3;
+     
+     optional string error = 4; 
+     
+     repeated LesenRPCResult reault = 5;
+   
+}
+
+message LesenRPCResult{
+
+   required string type=1;
+   
+   required bytes value=2;
+}
+enum Error{
+  SERVICE_NOT_EXIST =0;
+  METHOD_NOT_EXIST = 1;
+  METHOD_NOT_MATCH =2;
+}
